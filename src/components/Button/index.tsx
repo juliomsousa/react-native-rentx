@@ -8,8 +8,8 @@ import { Container, Title } from './styles';
 interface Props extends RectButtonProps {
   title: string;
   color?: string;
-  enabled?: boolean;
   loading?: boolean;
+  light?: boolean;
 }
 
 export const Button = ({
@@ -17,6 +17,8 @@ export const Button = ({
   color,
   enabled = true,
   loading = false,
+  light = false,
+  style,
   ...rest
 }: Props) => {
   const theme = useTheme();
@@ -25,12 +27,12 @@ export const Button = ({
       {...rest}
       color={color}
       enabled={enabled}
-      style={{ opacity: !enabled || loading ? 0.5 : 1 }}
+      style={[style, { opacity: !enabled || loading ? 0.5 : 1 }]}
     >
       {loading ? (
         <ActivityIndicator size="small" color={theme.colors.shape} />
       ) : (
-        <Title>{title}</Title>
+        <Title light={light}>{title}</Title>
       )}
     </Container>
   );

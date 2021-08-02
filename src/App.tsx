@@ -1,8 +1,8 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
+import { AppProvider } from './hooks';
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 import {
   Archivo_400Regular,
@@ -27,7 +27,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <AppProvider>
+        <Routes />
+      </AppProvider>
     </ThemeProvider>
   );
 }
