@@ -9,7 +9,7 @@ export const Routes = () => {
 
   return (
     <NavigationContainer>
-      {user ? <AppTabRoutes /> : <AuthRoutes />}
+      {user.id ? <AppTabRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   );
 };
